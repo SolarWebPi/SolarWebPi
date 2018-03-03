@@ -15,7 +15,7 @@ Control de instalación fotovoltáica con Raspberry Pi
 
 **Indice de conenidos:**
 
-# 1 Instalación HW inicial.
+[1.- Instalación HW inicial.]
 
 2 Instalación Sistema Operativo.
 
@@ -64,7 +64,7 @@ Control de instalación fotovoltáica con Raspberry Pi
     9.3 Reinicio Router en remoto
 
 
-   **1  Instalación HW inicial**
+(#1 Instalación HW inicial.)
 Utilizaremos una tarjeta microSD de 8GB
 Utilizar la entrada HDMI de la TV  para ver la pantalla
 Utilizar un teclado /ratón inalámbrico con dongle USB que tenia

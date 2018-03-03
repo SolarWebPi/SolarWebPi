@@ -15,7 +15,7 @@ Control de instalación fotovoltáica con Raspberry Pi
 
 **Indice de conenidos:**
 
-1 Instalación HW inicial.
+#1 Instalación HW inicial.
 
 2 Instalación Sistema Operativo.
 

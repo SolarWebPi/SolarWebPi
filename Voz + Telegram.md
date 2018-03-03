@@ -1,9 +1,11 @@
 **FVControl: Activar/desactivar relés mandando mensajes de voz desde Telegram**
 
-Mandar un mensaje de voz desde Telegram no es ningún misterio, pero hay que saber que su contenedor o formato de archivo de audio es Ogg (códec OPUS).
+Mandar un mensaje de voz desde Telegram no es ningún misterio, pero hay que saber que su contenedor o formato
+de archivo de audio es Ogg (códec OPUS).
 Nuestro reconocimiento de voz funciona con formato de audio WAV, con lo que es necesario convertir el archivo de OGG a WAV. 
 
-Primero voy a pegar aquí la modificación que he hecho a fvbot.py para después comentar cada paso y por último realizar la instalación del software necesario.
+Primero voy a pegar aquí la modificación que he hecho a fvbot.py para después comentar cada paso y por último 
+realizar la instalación del software necesario.
 
 
 #Listener
@@ -89,13 +91,18 @@ def listener(messages): #definimos función 'listener', recibe como parámetro '
 
 Las modificaciones incorporadas al programa van desde/hasta los textos marcados con fondo rojo.
 
-La primera parte (desde el IF inicial hasta new_file.write) sirve para identificar que el mensaje enviado por Telegram es de voz y en tal caso guardarlo en /home/pi con el nombre de voice.ogg
+La primera parte (desde el IF inicial hasta new_file.write) sirve para identificar que el mensaje 
+enviado por Telegram es de voz y en tal caso guardarlo en /home/pi con el nombre de voice.ogg
 
-El siguiente comando lo que hace es convertir el archivo voice.ogg a voice.wav con una tasa de muestreo (sample rate) de 16000 Hz.
-El siguiente comando ejecuta el programa de reconocimiento de voz, guardando la salida (texto) en el archivo /home/pi/text
+El siguiente comando lo que hace es convertir el archivo voice.ogg a voice.wav con una tasa de 
+muestreo (sample rate) de 16000 Hz.
+El siguiente comando ejecuta el programa de reconocimiento de voz, guardando la salida (texto)
+en el archivo /home/pi/text
 * Los archivos 3988.lm y 3988.dic pueden cambiar el nombre pero no la extensión. Luego veremos como crearlos.
 
-A continuación lo que hacemos es leer el contenido del archivo text y si se corresponde con alguna de las condiciones (IF), actualizará el 'modo' del relé en cuestión, en la base de datos. Luego ya fv.py se ocupará de encender/apagar el relé. Se puede también incluir el modo PRG (Ejemplo: 'DEPURADORA PROG\n' y orden = 'PRG') 
+A continuación lo que hacemos es leer el contenido del archivo text y si se corresponde con alguna de las 
+condiciones (IF), actualizará el 'modo' del relé en cuestión, en la base de datos. Luego ya fv.py se ocupará 
+de encender/apagar el relé. Se puede también incluir el modo PRG (Ejemplo: 'DEPURADORA PROG\n' y orden = 'PRG') 
 
 ** Es posible activar/desactivar GPIOs de la Raspberry directamente. Aquí, ya la imaginación de cada uno.
 
@@ -138,7 +145,8 @@ sudo make install
 
 Ahora ya toca liarnos con los archivos 3988.lm (modelo de lenguaje) y 3988.dic (diccionario).
 
-Lo que vamos a hacer, es crear un documento de texto 'corpus.txt'. Podemos hacerlo desde Windows. Y dentro escribiremos los mensajes que podemos/queramos mandar. Ejemplo:
+Lo que vamos a hacer, es crear un documento de texto 'corpus.txt'. Podemos hacerlo desde Windows. 
+Y dentro escribiremos los mensajes que podemos/queramos mandar. Ejemplo:
 
 corpus.txt
 DEPURADORA ON
@@ -163,4 +171,5 @@ $ wget URL_del_lm
 y
 $ wget URL_del_dic
 
-Ya sólo nos queda cambiar los nombres a estos dos archivos por 3988.lm y 3988.dic o entrar dentro de fvbot.py y cambiar el nombre allí.
+Ya sólo nos queda cambiar los nombres a estos dos archivos por 3988.lm y 3988.dic o entrar dentro 
+de fvbot.py y cambiar el nombre allí.

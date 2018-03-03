@@ -1,15 +1,16 @@
 # SolarWebPi
+
 Control de instalación fotovoltáica con Raspberry Pi
-**Qué necesitas**
-1 raspberry pi con fuente de alimentación y una tarjeta microsd 8GB.
-1 Protoboard o una placa PV CONTROL+ diseñada por @MLeon para soldar los componentes, que actualmente se encuentra en la versión 1.2, encontraras su diseño en formato .... aquí.
-2 Shuhnts de ..... /....
-1 ADS1115
-1 PCF8574
-1 PCF8574
-1 MUX74HC4067
-1 DS18B20
-Conectores enchufables
+**Qué necesitas:**
+- 1 raspberry pi con fuente de alimentación y una tarjeta microsd 8GB.
+- 1 Protoboard o una placa PV CONTROL+ diseñada por @MLeon para soldar los componentes, que actualmente se encuentra en la versión - 1.2, encontraras su diseño en formato .... aquí.
+- 2 Shuhnts de ..... /....
+- 1 ADS1115
+- 1 PCF8574
+- 1 PCF8574
+- 1 MUX74HC4067
+- 1 DS18B20
+- Conectores enchufables
 
 **Indice de conenidos:**
 

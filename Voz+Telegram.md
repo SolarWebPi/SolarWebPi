@@ -3,11 +3,8 @@
 Mandar un mensaje de voz desde Telegram no es ningún misterio, pero hay que saber que su contenedor o formato
 de archivo de audio es Ogg (códec OPUS).
 Nuestro reconocimiento de voz funciona con formato de audio WAV, con lo que es necesario convertir el archivo de OGG a WAV. 
-
-Primero voy a pegar aquí la modificación que he hecho a fvbot.py para después comentar cada paso y por último 
-realizar la instalación del software necesario.
-
-
+Para ello hay que realizar algunas modificaciónes en fvbot.py , encontrarás éste código en fvbot.py
+```
 #Listener
 def listener(messages): #definimos función 'listener', recibe como parámetro 'messages'.
     try:
@@ -22,8 +19,10 @@ def listener(messages): #definimos función 'listener', recibe como parámetro '
             tg_to=cid
             tg_to_u=str(m.chat.first_name)
             tg_from=cid
+```
+A partir de aquí es el añadido para que funcione a través de los mensajes de voz
 
-
+```
             if m.content_type == 'voice':
                 #bot.send_message( cid, 'voice')
                 fileID = m.voice.file_id
@@ -81,23 +80,18 @@ def listener(messages): #definimos función 'listener', recibe como parámetro '
 
                 cursor.close()
                 db.close()
-
-
-            elif m.content_type == 'text':
-
-                #print m
-                ...
-                ...
-
-Las modificaciones incorporadas al programa van desde/hasta los textos marcados con fondo rojo.
+```
+Como funciona:
 
 La primera parte (desde el IF inicial hasta new_file.write) sirve para identificar que el mensaje 
 enviado por Telegram es de voz y en tal caso guardarlo en /home/pi con el nombre de voice.ogg
 
 El siguiente comando lo que hace es convertir el archivo voice.ogg a voice.wav con una tasa de 
 muestreo (sample rate) de 16000 Hz.
+
 El siguiente comando ejecuta el programa de reconocimiento de voz, guardando la salida (texto)
 en el archivo /home/pi/text
+
 * Los archivos 3988.lm y 3988.dic pueden cambiar el nombre pero no la extensión. Luego veremos como crearlos.
 
 A continuación lo que hacemos es leer el contenido del archivo text y si se corresponde con alguna de las 
@@ -109,19 +103,19 @@ de encender/apagar el relé. Se puede también incluir el modo PRG (Ejemplo: 'DE
 
 SOFTWARE necesario:
 
-Convertidor de Ogg a Wav
+Instalar el convertidor de Ogg a Wav con
 
-$ sudo apt-get install opus-tools
+`$ sudo apt-get install opus-tools`
 
-Instalar algunas posibles dependencias
+Instalar algunas posibles dependencias con
 
-$ sudo apt-get install bison libasound2-dev swig
+`$ sudo apt-get install bison libasound2-dev swig`
 
 
 Reconocimiento de voz (son dos programas, descargar y compilar)
 
 SPHINXBASE
-
+```
 cd ~/
 wget http://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz
 tar -zxvf ./sphinxbase-5prealpha.tar.gz
@@ -130,9 +124,9 @@ cd ./sphinxbase-5prealpha
 make clean all
 make check
 sudo make install 
-
+```
 POCKETSPHINX
-
+```
 cd ~/
 wget http://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz
 tar -zxvf pocketsphinx-5prealpha.tar.gz
@@ -141,13 +135,12 @@ cd ./pocketsphinx-5prealpha
 make clean all
 make check
 sudo make install 
- 
-
-Ahora ya toca liarnos con los archivos 3988.lm (modelo de lenguaje) y 3988.dic (diccionario).
+```
+Ahora ya toca con los archivos 3988.lm (modelo de lenguaje) y 3988.dic (diccionario).
 
 Lo que vamos a hacer, es crear un documento de texto 'corpus.txt'. Podemos hacerlo desde Windows. 
 Y dentro escribiremos los mensajes que podemos/queramos mandar. Ejemplo:
-
+```
 corpus.txt
 DEPURADORA ON
 DEPURADORA OFF
@@ -156,7 +149,7 @@ RIEGO OFF
 ENCENDER LUZ EXTERIOR
 APAGAR LUZ EXTERIOR
 PROGRAMAR LUZ EXTERIOR
-
+```
 Creo que se entiende la idea. Una vez creado, vamos a subirlo a esta web:
 
 http://www.speech.cs.cmu.edu/tools/lmtool-new.html
@@ -167,10 +160,11 @@ Se abrirá una nueva página web con varios archivos. Nos interesan los enlaces 
 
 Desde la raspberry los bajamos con:
 
-$ wget URL_del_lm 
+`$ wget URL_del_lm `
 y
-$ wget URL_del_dic
+`$ wget URL_del_dic`
 
 Ya sólo nos queda cambiar los nombres a estos dos archivos por 3988.lm y 3988.dic o entrar dentro 
 de fvbot.py y cambiar el nombre allí.
+
 ![imagen con captura de pantalla enviando ordenes a través de Telegram](https://github.com/SolarWebPi/SolarWebPi/blob/master/img/voz.jpg)

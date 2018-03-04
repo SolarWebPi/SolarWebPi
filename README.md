@@ -2,10 +2,10 @@
 
 Control de instalación fotovoltáica con Raspberry Pi
 
-**Qué necesitas:**
+**¿Qué necesitas?**
 - 1 raspberry pi con fuente de alimentación y una tarjeta microsd 8GB.
 - 1 Protoboard o una placa PV CONTROL+ diseñada por @MLeon para soldar los componentes, que actualmente se encuentra en la versión - 1.2, encontraras su diseño en formato .... aquí.
-- 2 Shuhnts de ..... /....
+- 2 Shunt de ..... /....
 - 1 ADS1115
 - 1 PCF8574
 - 1 PCF8574
@@ -83,13 +83,13 @@ http://bot-boss.com/configuracion-wifi-bluetooth-raspberry-pi-3/
 Abrimos Preferencias/Configuración de Raspberry Pi
 
     • Pestaña System 
-        ◦  Hostname a rpi  u otro nombre
+        ◦ Hostname a rpi  u otro nombre
         ◦ Cambiar clave de raspberry a otra (por ejm Solarweb@123 o la que se quiera)
         ◦ Cambiar resolución de pantalla a lo que se quiera  o dejarlo como esta
     • En Pestaña Interfaces  Activamos
-        ◦  SSH: Conexión segura por Terminal (no activar si no se va a usar)
-        ◦  VNC:  Escritorio remoto  (no activar si no se va a usar)
-        ◦  I2C: Control de los ADS1115 y PCF8574
+        ◦ SSH: Conexión segura por Terminal (no activar si no se va a usar)
+        ◦ VNC:  Escritorio remoto  (no activar si no se va a usar)
+        ◦ I2C: Control de los ADS1115 y PCF8574
         ◦ 1 Wire : Para el sensor de temperatura DS18B20 (no activar si no se va a usar)
     • Pestaña Localization: 
         ◦ Locale …. Lenguaje: es ( Spanish)

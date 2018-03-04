@@ -173,3 +173,4 @@ $ wget URL_del_dic
 
 Ya sólo nos queda cambiar los nombres a estos dos archivos por 3988.lm y 3988.dic o entrar dentro 
 de fvbot.py y cambiar el nombre allí.
+![imagen con captura de pantalla enviando ordenes a través de Telegram](https://github.com/SolarWebPi/SolarWebPi/blob/master/img/voz.jpg)

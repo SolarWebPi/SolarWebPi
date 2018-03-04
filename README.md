@@ -379,4 +379,4 @@ Ya se podría utilizar el programa, por ejm desde el terminal de la RPi:
 En mi caso he modificado fvbot_msg.py para que si falla en el envío 10 veces reinicie el router
 
  
-Menciones especiales para :+1: @Nikkito y :+1: @MLeon
+Menciones especiales para :+1: @Nikitto y :+1: @MLeon

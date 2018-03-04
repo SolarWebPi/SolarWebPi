@@ -1,10 +1,12 @@
 **1. Instalación software en PC**
 
 Usaremos Windows y básicamente 2 programas: “Esplorer” y “nodemcu-Flasher-master”
+Enlace a Esplorer: https://esp8266.ru/esplorer/
+Enlace a Flasher: https://github.com/nodemcu/nodemcu-flasher
 
 **2. Carga firmware en NodeMCU**
 
-Usaremos nodemcu-flasher-master primero. Hay 2 versiones, la de 32 y 64 bits. Usar en función del SO que tengamos.
+Usaremos nodemcu-flasher-master primero. Hay 2 versiones, la de 32 y 64 bits. Usar en función del SO que tengamos, que normalmente será 64.
 
     -a) Usaremos este programa para meter el firmware al nodeMCU. 
     -b) Conectaremos con un cable USB el nodeMCU al ordenador.
@@ -15,7 +17,7 @@ Usaremos nodemcu-flasher-master primero. Hay 2 versiones, la de 32 y 64 bits. Us
     -g) Ir a “Operation” y darle a Flash (F)
     -h) Si todo va bien, veremos en una barra de progreso que todo va rulando bien………
 
-Y con esto, ya tenemos el FIRMWARE, Sistema operativo instalado en nuestro nodeMCU :-p
+Con esto, ya tenemos el FIRMWARE, Sistema operativo instalado en nuestro nodeMCU :-p
 
 **3. Carga de programas en NodeMCU**
 
